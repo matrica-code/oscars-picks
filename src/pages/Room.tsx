@@ -476,6 +476,143 @@ function LeaderboardTab({
   );
 }
 
+function LiveWinnerPicker({
+  categories,
+  winners,
+  onSetWinner,
+}: {
+  categories: Category[];
+  winners: Record<string, string>;
+  onSetWinner: (categoryId: string, nominee: string) => void;
+}) {
+  const unannounced = categories.filter((c) => !winners[c.id]);
+  const announced = categories.filter((c) => winners[c.id]);
+  const [activeId, setActiveId] = useState<string | null>(
+    unannounced[0]?.id ?? null
+  );
+
+  const activeCat = categories.find((c) => c.id === activeId);
+
+  return (
+    <div className="space-y-4">
+      {/* Progress */}
+      <div className="bg-gray-800 rounded-xl p-4">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="font-semibold">Announce Winners</h3>
+          <span className="text-sm text-gray-400">
+            {announced.length}/{categories.length}
+          </span>
+        </div>
+        <div className="w-full bg-gray-700 rounded-full h-2">
+          <div
+            className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
+            style={{
+              width: `${(announced.length / categories.length) * 100}%`,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Quick-select category */}
+      <div className="bg-gray-800 rounded-xl p-4">
+        <h4 className="text-xs uppercase text-gray-500 font-semibold mb-2">
+          Select category to announce
+        </h4>
+        <div className="flex flex-wrap gap-1.5">
+          {categories.map((cat) => {
+            const done = !!winners[cat.id];
+            const active = cat.id === activeId;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveId(cat.id)}
+                className={`text-xs px-2.5 py-1.5 rounded-lg transition-colors ${
+                  done
+                    ? active
+                      ? "bg-green-700 text-green-200 ring-1 ring-green-400"
+                      : "bg-green-900/40 text-green-400"
+                    : active
+                    ? "bg-yellow-500 text-gray-900 font-semibold"
+                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                }`}
+              >
+                {done ? "✓ " : ""}
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Winner selection for active category */}
+      {activeCat && (
+        <div className="bg-gray-800 rounded-xl p-5">
+          <h3 className="text-lg font-bold text-yellow-400 mb-1">
+            {activeCat.name}
+          </h3>
+          {winners[activeCat.id] && (
+            <p className="text-sm text-green-400 mb-3">
+              Winner: {winners[activeCat.id]}
+            </p>
+          )}
+          <p className="text-xs text-gray-500 mb-4">
+            Tap the winner. Tap again to undo.
+          </p>
+          <div className="space-y-2">
+            {activeCat.nominees.map((nominee) => {
+              const isWinner = winners[activeCat.id] === nominee;
+              return (
+                <button
+                  key={nominee}
+                  onClick={() => {
+                    onSetWinner(activeCat.id, nominee);
+                    // Auto-advance to next unannounced category
+                    if (!isWinner) {
+                      const next = categories.find(
+                        (c) => c.id !== activeCat.id && !winners[c.id]
+                      );
+                      if (next) setTimeout(() => setActiveId(next.id), 300);
+                    }
+                  }}
+                  className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                    isWinner
+                      ? "bg-green-600 text-white ring-2 ring-green-400 scale-[1.02]"
+                      : "bg-gray-700 text-gray-200 hover:bg-gray-600 active:scale-[0.98]"
+                  }`}
+                >
+                  {isWinner ? "🏆 " : ""}
+                  {nominee}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Announced history */}
+      {announced.length > 0 && (
+        <div className="bg-gray-800 rounded-xl p-4">
+          <h4 className="text-xs uppercase text-gray-500 font-semibold mb-3">
+            Announced
+          </h4>
+          <div className="space-y-1.5">
+            {announced.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveId(cat.id)}
+                className="w-full flex items-center justify-between text-sm px-3 py-2 rounded-lg bg-gray-700/50 hover:bg-gray-700 transition-colors"
+              >
+                <span className="text-gray-400">{cat.name}</span>
+                <span className="text-green-400">🏆 {winners[cat.id]}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function AdminTab({
   code,
   room,
@@ -578,40 +715,12 @@ function AdminTab({
         </div>
       </div>
 
-      {/* Mark winners */}
-      <div className="bg-gray-800 rounded-xl p-4">
-        <h3 className="font-semibold mb-3">Announce Winners</h3>
-        <p className="text-sm text-gray-400 mb-3">
-          Click a nominee to mark them as the winner. Click again to unset.
-        </p>
-        {selectedCats.map((cat) => (
-          <div key={cat.id} className="mb-4">
-            <h4 className="text-sm font-medium text-yellow-400 mb-2">
-              {cat.name}
-              {room.winners[cat.id] && (
-                <span className="ml-2 text-green-400 text-xs">
-                  ✓ {room.winners[cat.id]}
-                </span>
-              )}
-            </h4>
-            <div className="flex flex-wrap gap-1.5">
-              {cat.nominees.map((nominee) => (
-                <button
-                  key={nominee}
-                  onClick={() => setWinner(cat.id, nominee)}
-                  className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
-                    room.winners[cat.id] === nominee
-                      ? "bg-green-600 text-white"
-                      : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-                  }`}
-                >
-                  {nominee}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Live Mode - Announce Winners */}
+      <LiveWinnerPicker
+        categories={selectedCats}
+        winners={room.winners}
+        onSetWinner={setWinner}
+      />
     </div>
   );
 }
