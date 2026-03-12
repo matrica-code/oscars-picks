@@ -1,0 +1,275 @@
+{
+  "year": 2026,
+  "ceremony": "98th Academy Awards",
+  "categories": [
+    {
+      "id": "best-picture",
+      "name": "Best Picture",
+      "nominees": [
+        "Bugonia",
+        "F1",
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle after Another",
+        "The Secret Agent",
+        "Sentimental Value",
+        "Sinners",
+        "Train Dreams"
+      ]
+    },
+    {
+      "id": "best-director",
+      "name": "Best Director",
+      "nominees": [
+        "Chloé Zhao – Hamnet",
+        "Josh Safdie – Marty Supreme",
+        "Paul Thomas Anderson – One Battle after Another",
+        "Joachim Trier – Sentimental Value",
+        "Ryan Coogler – Sinners"
+      ]
+    },
+    {
+      "id": "best-actor",
+      "name": "Best Actor",
+      "nominees": [
+        "Timothée Chalamet – Marty Supreme",
+        "Leonardo DiCaprio – One Battle after Another",
+        "Ethan Hawke – Blue Moon",
+        "Michael B. Jordan – Sinners",
+        "Wagner Moura – The Secret Agent"
+      ]
+    },
+    {
+      "id": "best-actress",
+      "name": "Best Actress",
+      "nominees": [
+        "Jessie Buckley – Hamnet",
+        "Rose Byrne – If I Had Legs I'd Kick You",
+        "Kate Hudson – Song Sung Blue",
+        "Renate Reinsve – Sentimental Value",
+        "Emma Stone – Bugonia"
+      ]
+    },
+    {
+      "id": "best-supporting-actor",
+      "name": "Best Supporting Actor",
+      "nominees": [
+        "Benicio del Toro – One Battle after Another",
+        "Jacob Elordi – Frankenstein",
+        "Delroy Lindo – Sinners",
+        "Sean Penn – One Battle after Another",
+        "Stellan Skarsgård – Sentimental Value"
+      ]
+    },
+    {
+      "id": "best-supporting-actress",
+      "name": "Best Supporting Actress",
+      "nominees": [
+        "Elle Fanning – Sentimental Value",
+        "Inga Ibsdotter Lilleaas – Sentimental Value",
+        "Amy Madigan – Weapons",
+        "Wunmi Mosaku – Sinners",
+        "Teyana Taylor – One Battle after Another"
+      ]
+    },
+    {
+      "id": "best-animated-feature",
+      "name": "Best Animated Feature Film",
+      "nominees": [
+        "Arco",
+        "Elio",
+        "KPop Demon Hunters",
+        "Little Amélie or the Character of Rain",
+        "Zootopia 2"
+      ]
+    },
+    {
+      "id": "best-international-film",
+      "name": "Best International Feature Film",
+      "nominees": [
+        "The Secret Agent (Brazil)",
+        "It Was Just an Accident (France)",
+        "Sentimental Value (Norway)",
+        "Sirāt (Spain)",
+        "The Voice of Hind Rajab (Tunisia)"
+      ]
+    },
+    {
+      "id": "best-documentary",
+      "name": "Best Documentary Feature Film",
+      "nominees": [
+        "The Alabama Solution",
+        "Come See Me in the Good Light",
+        "Cutting Through Rocks",
+        "Mr. Nobody Against Putin",
+        "The Perfect Neighbor"
+      ]
+    },
+    {
+      "id": "best-original-screenplay",
+      "name": "Best Original Screenplay",
+      "nominees": [
+        "Blue Moon",
+        "It Was Just an Accident",
+        "Marty Supreme",
+        "Sentimental Value",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-adapted-screenplay",
+      "name": "Best Adapted Screenplay",
+      "nominees": [
+        "Bugonia",
+        "Frankenstein",
+        "Hamnet",
+        "One Battle after Another",
+        "Train Dreams"
+      ]
+    },
+    {
+      "id": "best-cinematography",
+      "name": "Best Cinematography",
+      "nominees": [
+        "Frankenstein",
+        "Marty Supreme",
+        "One Battle after Another",
+        "Sinners",
+        "Train Dreams"
+      ]
+    },
+    {
+      "id": "best-film-editing",
+      "name": "Best Film Editing",
+      "nominees": [
+        "F1",
+        "Marty Supreme",
+        "One Battle after Another",
+        "Sentimental Value",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-production-design",
+      "name": "Best Production Design",
+      "nominees": [
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle after Another",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-costume-design",
+      "name": "Best Costume Design",
+      "nominees": [
+        "Avatar: Fire and Ash",
+        "Frankenstein",
+        "Hamnet",
+        "Marty Supreme",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-makeup-hairstyling",
+      "name": "Best Makeup and Hairstyling",
+      "nominees": [
+        "Frankenstein",
+        "Kokuho",
+        "Sinners",
+        "The Smashing Machine",
+        "The Ugly Stepsister"
+      ]
+    },
+    {
+      "id": "best-sound",
+      "name": "Best Sound",
+      "nominees": [
+        "F1",
+        "Frankenstein",
+        "One Battle after Another",
+        "Sinners",
+        "Sirāt"
+      ]
+    },
+    {
+      "id": "best-visual-effects",
+      "name": "Best Visual Effects",
+      "nominees": [
+        "Avatar: Fire and Ash",
+        "F1",
+        "Jurassic World Rebirth",
+        "The Lost Bus",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-original-score",
+      "name": "Best Original Score",
+      "nominees": [
+        "Bugonia",
+        "Frankenstein",
+        "Hamnet",
+        "One Battle after Another",
+        "Sinners"
+      ]
+    },
+    {
+      "id": "best-original-song",
+      "name": "Best Original Song",
+      "nominees": [
+        "\"Dear Me\" – Diane Warren: Relentless",
+        "\"Golden\" – KPop Demon Hunters",
+        "\"I Lied to You\" – Sinners",
+        "\"Sweet Dreams of Joy\" – Viva Verdi!",
+        "\"Train Dreams\" – Train Dreams"
+      ]
+    },
+    {
+      "id": "best-animated-short",
+      "name": "Best Animated Short Film",
+      "nominees": [
+        "Butterfly",
+        "Forevergreen",
+        "The Girl Who Cried Pearls",
+        "Retirement Plan",
+        "The Three Sisters"
+      ]
+    },
+    {
+      "id": "best-live-action-short",
+      "name": "Best Live Action Short Film",
+      "nominees": [
+        "Butcher's Stain",
+        "A Friend of Dorothy",
+        "Jane Austen's Period Drama",
+        "The Singers",
+        "Two People Exchanging Saliva"
+      ]
+    },
+    {
+      "id": "best-documentary-short",
+      "name": "Best Documentary Short Film",
+      "nominees": [
+        "All the Empty Rooms",
+        "Armed Only with a Camera: The Life and Death of Brent Renaud",
+        "Children No More: \"Were and Are Gone\"",
+        "The Devil Is Busy",
+        "Perfectly a Strangeness"
+      ]
+    },
+    {
+      "id": "best-casting",
+      "name": "Best Casting",
+      "nominees": [
+        "Hamnet",
+        "Marty Supreme",
+        "One Battle after Another",
+        "The Secret Agent",
+        "Sinners"
+      ]
+    }
+  ]
+}
