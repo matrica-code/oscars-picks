@@ -26,16 +26,13 @@ function JoinPrompt({ code, room, onJoined }: { code: string; room: { locked: bo
 
       const ref = doc(db, "rooms", code.toUpperCase(), "participants", name.trim());
       const snap = await getDoc(ref);
-      if (snap.exists()) {
-        setError("That name is already taken. Try another.");
-        return;
+      if (!snap.exists()) {
+        await setDoc(ref, {
+          name: name.trim(),
+          picks: {},
+          joinedAt: Date.now(),
+        });
       }
-
-      await setDoc(ref, {
-        name: name.trim(),
-        picks: {},
-        joinedAt: Date.now(),
-      });
 
       localStorage.setItem(`name-${code.toUpperCase()}`, name.trim());
       onJoined(name.trim());
