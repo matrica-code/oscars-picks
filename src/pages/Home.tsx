@@ -80,20 +80,17 @@ export default function Home() {
         return;
       }
 
-      // Check if name is taken
+      // If participant doesn't exist yet, create them
       const participantSnap = await getDoc(
         doc(db, "rooms", code, "participants", joinName.trim())
       );
-      if (participantSnap.exists()) {
-        setError("That name is already taken in this room.");
-        return;
+      if (!participantSnap.exists()) {
+        await setDoc(doc(db, "rooms", code, "participants", joinName.trim()), {
+          name: joinName.trim(),
+          picks: {},
+          joinedAt: Date.now(),
+        });
       }
-
-      await setDoc(doc(db, "rooms", code, "participants", joinName.trim()), {
-        name: joinName.trim(),
-        picks: {},
-        joinedAt: Date.now(),
-      });
 
       localStorage.setItem(`name-${code}`, joinName.trim());
       navigate(`/room/${code}`);
